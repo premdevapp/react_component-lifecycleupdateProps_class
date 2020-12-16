@@ -5,6 +5,12 @@ class Person extends Component {
   /* if (Math.floor(Math.random() * 10) > 7) {
     throw new Error("Something Went Wrong!!!");
   } */
+
+  //componentWillUnmount
+  componentWillUnmount() {
+    console.log("[ Person js ] componentWillUnmount");
+  }
+
   render() {
     console.log("[Person js] rendering");
     return (

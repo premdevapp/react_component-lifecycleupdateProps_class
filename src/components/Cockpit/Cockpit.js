@@ -1,6 +1,33 @@
-import React from "react";
+import React, { useEffect } from "react";
 import ClassesCockpit from "./Cockpit.module.scss";
 const Cockpit = (props) => {
+  useEffect(
+    () => {
+      console.log(
+        "Every render cycle component did mount and component did update"
+      );
+      const timer = setTimeout(() => {
+        alert("some callbacks");
+      }, 1000);
+      return () => {
+        clearTimeout(timer);
+        console.log(" clean up work done here");
+      };
+    },
+    [
+      /* props.persons */
+    ]
+  );
+
+  useEffect(() => {
+    console.log(
+      "2nd Every render cycle component did mount and component did update"
+    );
+    return () => {
+      console.log("2nd clean up work done here");
+    };
+  });
+
   const assignedClasses = [];
 
   let btnClass = [ClassesCockpit.button];
