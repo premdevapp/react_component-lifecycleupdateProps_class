@@ -4,15 +4,48 @@ import PersonList from "../components/PersonsList/Persons";
 import Cockpit from "../components/Cockpit/Cockpit";
 
 class App extends Component {
-  state = {
-    persons: [
-      { id: "asf111", name: "Premnath", age: 29 },
-      { id: "asf222", name: "Priyadharsini", age: 27 },
-      { id: "asf333", name: "Pichaimuthu", age: 57 },
-      { id: "asf444", name: "Padmavathy", age: 42 },
-    ],
-    showPersons: false,
-  };
+  constructor(props) {
+    super(props);
+
+    console.log("[ App.js ] is constructed");
+
+    this.state = {
+      persons: [
+        { id: "asf111", name: "Premnath", age: 29 },
+        { id: "asf222", name: "Priyadharsini", age: 27 },
+        { id: "asf333", name: "Pichaimuthu", age: 57 },
+        { id: "asf444", name: "Padmavathy", age: 42 },
+      ],
+      showPersons: false,
+    };
+  }
+
+  //getDerivedStateFromProps
+  static getDerivedStateFromProps(props, state) {
+    console.log(" [App js getDerivedStateFromProps]", props);
+    return state;
+  }
+
+  //componentDidMount
+  componentDidMount() {
+    console.log("[App js] componentDidMount");
+  }
+
+  //shouldComponentUpdate
+  shouldComponentUpdate(nextProps, nextState) {
+    console.log("[App js] shouldComponentUpdate");
+    return true;
+  }
+
+  //componentDidUpdate
+  componentDidUpdate() {
+    console.log("[App js] componentDidUpdate");
+  }
+
+  //componentWillMount
+  componentWillMount() {
+    console.log("[App js] componentWillMount");
+  }
 
   nameChangedHandler = (event, id) => {
     const personInx = this.state.persons.findIndex((prsn) => {
